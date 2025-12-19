@@ -1,0 +1,22 @@
+export default {
+  cosmic: {
+    background: '#0A0E27',
+    backgroundSecondary: '#131829',
+    card: '#1A1F3A',
+    cardLight: '#252B4A',
+    primary: '#FFB84D',
+    primaryDark: '#E69A3A',
+    secondary: '#6B7FFF',
+    accent: '#FF6B9D',
+    text: '#E8E9F3',
+    textSecondary: '#9BA3C7',
+    textMuted: '#6B7394',
+    border: '#2A3150',
+    success: '#4CAF50',
+    warning: '#FF9800',
+    error: '#FF5252',
+    benefic: '#4CAF50',
+    malefic: '#FF5252',
+    neutral: '#9E9E9E',
+  },
+};
