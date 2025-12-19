@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Sparkles, FileText, BarChart3, Settings } from "lucide-react-native";
+import { Sparkles, FileText, BarChart3, Settings, MessageCircle } from "lucide-react-native";
 import React from "react";
 import Colors from "@/constants/colors";
 
@@ -43,6 +43,13 @@ export default function TabLayout() {
         options={{
           title: "Analysis",
           tabBarIcon: ({ color }) => <BarChart3 color={color} size={24} />,
+        }}
+      />
+      <Tabs.Screen
+        name="ai"
+        options={{
+          title: "AstroGPT",
+          tabBarIcon: ({ color }) => <MessageCircle color={color} size={24} />,
         }}
       />
       <Tabs.Screen

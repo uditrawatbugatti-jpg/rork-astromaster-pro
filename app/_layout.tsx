@@ -5,6 +5,8 @@ import React, { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { ChartProvider } from "@/contexts/ChartContext";
 import { StatusBar } from "expo-status-bar";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { AiProvider } from "@/contexts/AiContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -28,11 +30,15 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ChartProvider>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <RootLayoutNav />
-        </GestureHandlerRootView>
-      </ChartProvider>
+      <AiProvider>
+        <ChartProvider>
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <ErrorBoundary>
+              <RootLayoutNav />
+            </ErrorBoundary>
+          </GestureHandlerRootView>
+        </ChartProvider>
+      </AiProvider>
     </QueryClientProvider>
   );
 }
