@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Sparkles, FileText, BarChart3, Settings, MessageCircle } from "lucide-react-native";
+import { Sparkles, FileText, BarChart3, Settings, MessageCircle, Crown } from "lucide-react-native";
 import React from "react";
 import Colors from "@/constants/colors";
 
@@ -57,6 +57,13 @@ export default function TabLayout() {
         options={{
           title: "Birth Data",
           tabBarIcon: ({ color }) => <Settings color={color} size={24} />,
+        }}
+      />
+      <Tabs.Screen
+        name="pro"
+        options={{
+          title: "Pro",
+          tabBarIcon: ({ color }) => <Crown color={color} size={24} />,
         }}
       />
     </Tabs>

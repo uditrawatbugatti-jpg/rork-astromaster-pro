@@ -7,6 +7,8 @@ import { ChartProvider } from "@/contexts/ChartContext";
 import { StatusBar } from "expo-status-bar";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { AiProvider } from "@/contexts/AiContext";
+import { ProProvider } from "@/contexts/ProContext";
+import { trpc, trpcClient } from "@/lib/trpc";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -29,16 +31,20 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <AiProvider>
-        <ChartProvider>
-          <GestureHandlerRootView style={{ flex: 1 }}>
-            <ErrorBoundary>
-              <RootLayoutNav />
-            </ErrorBoundary>
-          </GestureHandlerRootView>
-        </ChartProvider>
-      </AiProvider>
-    </QueryClientProvider>
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <AiProvider>
+          <ProProvider>
+            <ChartProvider>
+              <GestureHandlerRootView style={{ flex: 1 }}>
+                <ErrorBoundary>
+                  <RootLayoutNav />
+                </ErrorBoundary>
+              </GestureHandlerRootView>
+            </ChartProvider>
+          </ProProvider>
+        </AiProvider>
+      </QueryClientProvider>
+    </trpc.Provider>
   );
 }
